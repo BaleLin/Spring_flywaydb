@@ -1,6 +1,6 @@
-package com.oocl.Spring_flywaydb.repositories;
+package com.oocl.Spring_flywaydb.repositories.manyToMany;
 
-import com.oocl.Spring_flywaydb.entities.Groups;
+import com.oocl.Spring_flywaydb.entities.manyToMany.Groups;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

@@ -1,4 +1,4 @@
-package com.oocl.Spring_flywaydb.entities;
+package com.oocl.Spring_flywaydb.entities.manyToMany;
 
 import javax.persistence.*;
 import java.util.ArrayList;

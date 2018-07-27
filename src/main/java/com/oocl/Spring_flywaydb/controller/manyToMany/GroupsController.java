@@ -1,8 +1,8 @@
-package com.oocl.Spring_flywaydb.controller;
+package com.oocl.Spring_flywaydb.controller.manyToMany;
 
 
-import com.oocl.Spring_flywaydb.entities.Groups;
-import com.oocl.Spring_flywaydb.repositories.GroupsReository;
+import com.oocl.Spring_flywaydb.entities.manyToMany.Groups;
+import com.oocl.Spring_flywaydb.repositories.manyToMany.GroupsReository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,14 +19,16 @@ public class GroupsController {
     }
 
     @PostMapping
-    @org.springframework.transaction.annotation.Transactional
+    @Transactional
     public ResponseEntity save(@RequestBody Groups groups) {
+        System.out.println(groups.getUsers());
         groups.getUsers().forEach(users -> users.getGroups().add(groups));
+        System.out.println(groups.getUsers());
         groupsReository.save(groups);
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
     @PutMapping("/{id}")
-    @org.springframework.transaction.annotation.Transactional
+    @Transactional
     public ResponseEntity updateGroup(@RequestBody Groups groups) {
         groupsReository.save(groups);
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();

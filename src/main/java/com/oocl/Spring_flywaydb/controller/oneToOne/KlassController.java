@@ -1,9 +1,8 @@
-package com.oocl.Spring_flywaydb.controller;
+package com.oocl.Spring_flywaydb.controller.oneToOne;
 
-import com.oocl.Spring_flywaydb.controller.dto.KlassDTO;
-import com.oocl.Spring_flywaydb.entities.Companies;
-import com.oocl.Spring_flywaydb.entities.Klass;
-import com.oocl.Spring_flywaydb.repositories.KlassReository;
+import com.oocl.Spring_flywaydb.controller.dto.oneToOne.KlassDTO;
+import com.oocl.Spring_flywaydb.entities.oneToOne.Klass;
+import com.oocl.Spring_flywaydb.repositories.oneToOne.KlassReository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

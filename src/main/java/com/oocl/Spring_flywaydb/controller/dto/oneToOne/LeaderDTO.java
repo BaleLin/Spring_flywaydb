@@ -1,7 +1,6 @@
-package com.oocl.Spring_flywaydb.controller.dto;
+package com.oocl.Spring_flywaydb.controller.dto.oneToOne;
 
-import com.oocl.Spring_flywaydb.entities.Klass;
-import com.oocl.Spring_flywaydb.entities.Leader;
+import com.oocl.Spring_flywaydb.entities.oneToOne.Leader;
 
 public class LeaderDTO {
     private final Long id;

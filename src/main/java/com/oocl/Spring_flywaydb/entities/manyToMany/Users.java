@@ -1,6 +1,6 @@
-package com.oocl.Spring_flywaydb.entities;
+package com.oocl.Spring_flywaydb.entities.manyToMany;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.oocl.Spring_flywaydb.entities.manyToMany.Groups;
 
 import javax.persistence.*;
 import java.util.List;
@@ -12,7 +12,12 @@ public class Users {
     private Long id;
     private String name;
 
-    @JoinTable( name = "users_groups",joinColumns = @JoinColumn(name="users_id"),inverseJoinColumns = @JoinColumn(name="groups_id"))
+    @JoinTable(
+            name = "users_groups",
+            joinColumns =
+                @JoinColumn(name="users_id", referencedColumnName="id"),
+            inverseJoinColumns =
+                @JoinColumn(name="groups_id",referencedColumnName="id"))
     @ManyToMany(cascade = CascadeType.ALL,targetEntity =Groups.class)
     private List<Groups> groups;
 

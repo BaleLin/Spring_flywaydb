@@ -1,6 +1,7 @@
-package com.oocl.Spring_flywaydb.entities;
+package com.oocl.Spring_flywaydb.entities.oneToMany;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.oocl.Spring_flywaydb.entities.oneToMany.Companies;
 import org.springframework.data.annotation.CreatedDate;
 
 import javax.persistence.*;

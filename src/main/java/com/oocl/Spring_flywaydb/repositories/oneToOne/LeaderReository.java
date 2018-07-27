@@ -1,6 +1,6 @@
-package com.oocl.Spring_flywaydb.repositories;
+package com.oocl.Spring_flywaydb.repositories.oneToOne;
 
-import com.oocl.Spring_flywaydb.entities.Leader;
+import com.oocl.Spring_flywaydb.entities.oneToOne.Leader;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

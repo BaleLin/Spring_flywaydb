@@ -1,6 +1,6 @@
-package com.oocl.Spring_flywaydb.controller.dto;
+package com.oocl.Spring_flywaydb.controller.dto.oneToOne;
 
-import com.oocl.Spring_flywaydb.entities.Klass;
+import com.oocl.Spring_flywaydb.entities.oneToOne.Klass;
 
 public class KlassDTO {
     private final Long id;

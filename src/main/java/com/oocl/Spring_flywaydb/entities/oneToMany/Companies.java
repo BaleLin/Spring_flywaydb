@@ -1,4 +1,4 @@
-package com.oocl.Spring_flywaydb.entities;
+package com.oocl.Spring_flywaydb.entities.oneToMany;
 
 import org.springframework.data.annotation.CreatedDate;
 

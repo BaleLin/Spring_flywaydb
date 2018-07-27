@@ -1,15 +1,13 @@
-package com.oocl.Spring_flywaydb.controller;
+package com.oocl.Spring_flywaydb.controller.oneToMany;
 
-import com.oocl.Spring_flywaydb.controller.dto.CompaniesDTO;
-import com.oocl.Spring_flywaydb.entities.Companies;
-import com.oocl.Spring_flywaydb.entities.Employees;
-import com.oocl.Spring_flywaydb.repositories.CompaniesReository;
-import com.oocl.Spring_flywaydb.repositories.EmployeesReository;
+import com.oocl.Spring_flywaydb.controller.dto.oneToMany.CompaniesDTO;
+import com.oocl.Spring_flywaydb.entities.oneToMany.Companies;
+import com.oocl.Spring_flywaydb.repositories.oneToMany.CompaniesReository;
+import com.oocl.Spring_flywaydb.repositories.oneToMany.EmployeesReository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
 
 import javax.transaction.Transactional;
 import java.util.List;
@@ -34,11 +32,12 @@ public class CompaniesController {
 
     @Transactional
     @PostMapping("/Companies")
-    public Companies addCompanies(@RequestBody Companies companies){
+    public CompaniesDTO addCompanies(@RequestBody Companies companies){
         companies.getEmployees().stream().forEach(employees -> {
             employees.setCompanies(companies);
         });
-        return companiesReository.save(companies);
+        companiesReository.save(companies);
+        return new CompaniesDTO(companies);
     }
 
     @Transactional
@@ -60,10 +59,10 @@ public class CompaniesController {
 
     @Transactional
     @DeleteMapping("/Companies/{id}")
-    public Companies delete(@PathVariable("id")Long id){
+    public CompaniesDTO delete(@PathVariable("id")Long id){
         Companies one = companiesReository.findById(id).get();
         companiesReository.delete(one);
-        return one;
+        return new CompaniesDTO(one);
     }
 
 }

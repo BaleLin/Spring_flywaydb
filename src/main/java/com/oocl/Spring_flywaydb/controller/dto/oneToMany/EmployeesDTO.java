@@ -1,6 +1,6 @@
-package com.oocl.Spring_flywaydb.controller.dto;
+package com.oocl.Spring_flywaydb.controller.dto.oneToMany;
 
-import com.oocl.Spring_flywaydb.entities.Employees;
+import com.oocl.Spring_flywaydb.entities.oneToMany.Employees;
 
 public class EmployeesDTO {
     private final Long id;

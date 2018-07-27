@@ -1,24 +1,20 @@
-package com.oocl.Spring_flywaydb.entities;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
+package com.oocl.Spring_flywaydb.entities.oneToOne;
 
 import javax.persistence.*;
 
 @Entity
-public class Leader {
+public class Klass {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-
-    public Leader(String name) {
-        this.name = name;
+    @OneToOne(cascade = CascadeType.ALL,mappedBy = "klass",fetch = FetchType.LAZY)
+    private Leader leader;
+    public Klass() {
     }
-    @JsonIgnore
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "klass_id")
-    private Klass klass;
-    public Leader() {
+
+    public Klass(String name) {
+        this.name = name;
     }
 
     public Long getId() {
@@ -36,12 +32,11 @@ public class Leader {
     public void setName(String name) {
         this.name = name;
     }
-
-    public Klass getKlass() {
-        return klass;
+        public Leader getLeader() {
+        return leader;
     }
 
-    public void setKlass(Klass klass) {
-        this.klass = klass;
+    public void setLeader(Leader leader) {
+        this.leader = leader;
     }
 }
