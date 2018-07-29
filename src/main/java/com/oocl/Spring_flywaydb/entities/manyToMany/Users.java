@@ -3,6 +3,7 @@ package com.oocl.Spring_flywaydb.entities.manyToMany;
 import com.oocl.Spring_flywaydb.entities.manyToMany.Groups;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -19,7 +20,7 @@ public class Users {
             inverseJoinColumns =
                 @JoinColumn(name="groups_id",referencedColumnName="id"))
     @ManyToMany(cascade = CascadeType.ALL,targetEntity =Groups.class)
-    private List<Groups> groups;
+    private List<Groups> groups = new ArrayList<>();
 
     public Users(String name, List<Groups> groups) {
         this.name = name;
