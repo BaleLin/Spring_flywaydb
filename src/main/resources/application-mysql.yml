@@ -1,0 +1,17 @@
+# Spring 数据源 (DataSourceAutoConfiguration & DataSourceProperties)
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver #数据库连接驱动
+    url: jdbc:mysql://192.168.99.100:3306/ita0010?useSSL=false #数据库的连接路径
+    username: root #用户名
+    password: root  #密码
+
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect # Hibernate 属性，SQL 方言使得 Hibernate 为所选数据库生成更好的 SQL
+        show_sql: true  #展示打印日志
+        format_sql: true #提高数据库打印信息的可读性
+        use_sql_comments: true  #可读性 + 可定位性会更佳
+        generate_statistics: false #操作的统计信息
+        ddl-auto: create-drop  #启动时删数据库中的表，然后创建，退出时删除数据表 如果表不存在报错 
